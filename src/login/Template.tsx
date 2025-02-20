@@ -9,6 +9,9 @@ import type { I18n } from "./i18n";
 import type { KcContext } from "./KcContext";
 import useSetCookieConsent from "./useSetCookieConsent.tsx";
 
+import logo from "./assets/brand/logo.svg";
+import background from "./assets/brand/marvin-radke-FyrEwuQPSo8-unsplash.jpg";
+
 export default function Template(props: TemplateProps<KcContext, I18n>) {
     const {
         displayInfo = false,
@@ -103,27 +106,12 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
             )}
         >
             <div id="kc-header">
-                {(advancedMsgStr("backgroundLogoUrl") || kcContext.properties["TAILCLOAKIFY_BACKGROUND_LOGO_URL"]) && (
-                    <img
-                        alt={"Logo"}
-                        src={advancedMsgStr("backgroundLogoUrl") || kcContext.properties["TAILCLOAKIFY_BACKGROUND_LOGO_URL"]}
-                        className={"fixed z-10 top-4 left-8"}
-                    />
-                )}
-                {(advancedMsgStr("backgroundVideoUrl") || kcContext.properties["TAILCLOAKIFY_BACKGROUND_VIDEO_URL"]) && (
-                    <video
-                        autoPlay={true}
-                        loop={true}
-                        muted={true}
-                        playsInline={true}
-                        className={"fixed top-0 left-0 right-0 bottom-0 min-h-full min-w-full opacity-20 max-w-none"}
-                    >
-                        <source
-                            src={advancedMsgStr("backgroundLogoUrl") || kcContext.properties["TAILCLOAKIFY_BACKGROUND_VIDEO_URL"]}
-                            type="video/mp4"
-                        />
-                    </video>
-                )}
+                <img alt={"Logo"} src={logo} className={"fixed z-10 top-4 left-8 size-24"} />
+                <img
+                    alt={"Background Image"}
+                    src={background}
+                    className={"fixed top-0 left-0 right-0 bottom-0 min-h-full min-w-full opacity-20 max-w-none"}
+                />
             </div>
 
             <div className={clsx(kcClsx("kcFormCardClass"), "relative z-10 max-w-md w-full rounded-lg")}>
