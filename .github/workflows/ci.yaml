@@ -3,10 +3,10 @@ name: ci
 on:
   push:
     branches:
-      - main
+      - act
   pull_request:
     branches:
-      - main
+      - act
 
 jobs:
   test:
